@@ -1,10 +1,33 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
+import { useInView } from "react-intersection-observer";
 
 export default function Projects() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.8,
+    });
+
     return (
-        <div className="flex flex-col p-8 min-h-screen">
-            <TypeAnimation sequence={["> ", 160,"> P", 160, "> Pr", 160, "> Pro", 160, "> Proj", 160, "> Proje", 160, "> Projec", 160, "> Project", 160, "> Projects", 160]} speed={15} cursor={false} className="text-6xl"/>
+        <div ref={ref} className="flex flex-col p-8 min-h-screen">
+            {inView && (
+                <TypeAnimation
+                    sequence={[
+                        "> ", 80,
+                        "> P", 80,
+                        "> Pr", 80,
+                        "> Pro", 80,
+                        "> Proj", 80,
+                        "> Proje", 80,
+                        "> Projec", 80,
+                        "> Project", 80,
+                        "> Projects", 80,
+                    ]}
+                    speed={15}
+                    cursor={false}
+                    className="text-6xl"
+                />
+            )}
         </div>
     );
 }

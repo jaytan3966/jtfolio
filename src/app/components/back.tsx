@@ -1,17 +1,22 @@
+"use client";
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { NavbarProps, handleScrollDown } from "./navbar";
 import { useTheme } from "../context/themecontext";
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
-export default function Back({aboutRef}: NavbarProps) {
+export default function Back({ aboutRef }: NavbarProps) {
     const { isDarkMode } = useTheme();
-    
+    const [mounted, setMounted] = useState(false);
+
     useEffect(() => {
+        setMounted(true);
         document.body.style.position = 'relative';
         return () => {
             document.body.style.position = '';
         };
     }, []);
+
+    if (!mounted) return null;
 
     return createPortal(
         <div className="fixed bottom-0 right-0 p-4 md:p-6 z-50">

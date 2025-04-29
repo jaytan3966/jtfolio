@@ -7,7 +7,7 @@ import Loading from './components/loading';
 import Navbar from './components/navbar';
 import Introduction from './components/introduction';
 import Projects from './components/projects';
-import Experience from './experience';
+import Experience from './components/experience';
 import Contact from './components/contact';
 import Back from './components/back';
 
