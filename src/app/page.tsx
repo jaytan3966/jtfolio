@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useRef } from 'react';
+import { useTheme } from './context/themecontext';
+
 import Loading from './components/loading';
 import Navbar from './components/navbar';
 import Introduction from './components/introduction';
@@ -16,41 +18,41 @@ export default function Home() {
   const expRef = useRef<HTMLDivElement | null>(null);
 
   const [currentPage, setCurrentPage] = useState('loading');
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCurrentPage('home');
-    }, 7000); 
+      setIsTransitioning(true);
+      
+      setTimeout(() => {
+        setCurrentPage('home');
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 250);
+      }, 250);
+    }, 6750); 
 
     return () => clearTimeout(timer); 
-  });
+  }, []);
 
   if (currentPage === 'home') {
     return (
-      <div ref={aboutRef} >
+      <div ref={aboutRef} className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-100 text-black'} transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
         <Navbar aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
         <header className="flex items-center p-4 font-mono" id="about-me">
-          <Introduction />
+          <Introduction aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
         </header>
-        <main className="items-center p-4 font-mono sm:2xl">
+        <main className={`items-center p-4 font-mono sm:2xl`}>
           <div ref={projectsRef}><Projects /></div>
           <div ref={expRef}><Experience /></div>
           <div ref={contactRef}><Contact /></div>
-          <div><Projects /></div>
-          <div><Experience /></div>
-          <div><Contact /></div>
-          <div ><Projects /></div>
-          <div><Experience /></div>
-          <div><Contact /></div>
-          <div><Projects /></div>
-          <div><Experience /></div>
-          <div><Contact /></div>
         </main>
       </div>
     );
   }
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className={`flex flex-col items-center justify-center min-h-screen transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Loading />
     </main>
     
