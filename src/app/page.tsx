@@ -9,6 +9,7 @@ import Introduction from './components/introduction';
 import Projects from './components/projects';
 import Experience from './experience';
 import Contact from './components/contact';
+import Back from './components/back';
 
 export default function Home() {
   
@@ -40,20 +41,24 @@ export default function Home() {
     return (
       <div ref={aboutRef} className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-100 text-black'} transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
         <Navbar aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
-        <header className="flex items-center p-4 font-mono" id="about-me">
+        <header className="flex p-4 font-mono" id="about-me">
           <Introduction aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
+          
         </header>
         <main className={`items-center p-4 font-mono sm:2xl`}>
+          
           <div ref={projectsRef}><Projects /></div>
           <div ref={expRef}><Experience /></div>
           <div ref={contactRef}><Contact /></div>
         </main>
+        <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
       </div>
     );
   }
   return (
     <main className={`flex flex-col items-center justify-center min-h-screen transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Loading />
+      
     </main>
     
   );
