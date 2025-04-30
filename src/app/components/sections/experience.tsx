@@ -22,7 +22,7 @@ export default function Experience() {
     return (
         
         <div ref={containerRef} className="flex flex-col p-8 min-h-screen">
-            <div ref={ref}>
+            <div ref={ref} className="mb-8 font-bold">
             {inView && (
                 <TypeAnimation sequence={[
                     "> ", 60,

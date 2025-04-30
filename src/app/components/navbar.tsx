@@ -25,16 +25,16 @@ export default function Navbar({aboutRef, projectsRef, expRef, contactRef}: Navb
     return (
         <div className={`flex fixed justify-between w-[100%] top-0 left-0 text-l md:text-xl font-mono p-4 md:p-6`}>
             <div className="flex space-x-5 md:space-x-8">
-                <button onClick={() => handleScrollDown(aboutRef)} className="cursor-pointer" title="Learn more about Jayden">Jayden Tan</button>
-                <button onClick={() => handleScrollDown(projectsRef)} className="cursor-pointer" title="Check out Jayden's Projects">Projects</button>
-                <button onClick={() => handleScrollDown(expRef)} className="cursor-pointer" title="Take a look at Jayden's Experience">Experience</button>
-                <button onClick={() => handleScrollDown(contactRef)} className="cursor-pointer" title="Contact Jayden">Contact</button>
+                <button onClick={() => handleScrollDown(aboutRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500" title="Learn more about Jayden">Jayden Tan</button>
+                <button onClick={() => handleScrollDown(projectsRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500" title="Check out Jayden's Projects">Projects</button>
+                <button onClick={() => handleScrollDown(expRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500" title="Take a look at Jayden's Experience">Experience</button>
+                <button onClick={() => handleScrollDown(contactRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500" title="Contact Jayden">Contact</button>
             </div>
             
             <button
                 onClick={toggleTheme}
                 className={`
-                    relative w-9 h-6 md:w-14 md:h-8 rounded-full p-1 transition-all duration-300 cursor-pointer
+                    relative w-9 h-6 md:w-14 md:h-8 rounded-full p-1 transition-all duration-400 cursor-pointer
                     ${isDarkMode ? 'bg-black shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] ring-gray-600/30' : 'bg-gray-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] ring-gray-400/20'}
                     ring-1 hover:ring-2
                         shadow-lg hover:shadow-xl
@@ -43,7 +43,7 @@ export default function Navbar({aboutRef, projectsRef, expRef, contactRef}: Navb
                 >
                 <div
                     className={`
-                    w-4 h-4 md:w-6 md:h-6 rounded-full transform transition-all duration-300
+                    w-4 h-4 md:w-6 md:h-6 rounded-full transform transition-all duration-400
                     ${isDarkMode ? 'translate-x-3 md:translate-x-6' : 'md:translate-x-0'}
                     flex items-center justify-center hover:scale-110 
                     `}

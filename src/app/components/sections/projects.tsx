@@ -2,6 +2,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef } from "react";
+import ProjectsGrid from "../projectsGrid";
 
 export default function Projects() {
     const { ref, inView } = useInView({
@@ -21,8 +22,8 @@ export default function Projects() {
     }, [inView]);
 
     return (
-        <div ref={containerRef} className="flex flex-col p-8 min-h-screen">
-            <div ref={ref}>
+        <div ref={containerRef} className="flex flex-col px-2 py-8 min-h-screen">
+            <div ref={ref} className="mb-8 font-bold">
                 {inView && (
                     <TypeAnimation
                         sequence={[
@@ -40,7 +41,12 @@ export default function Projects() {
                         cursor={false}
                         className="text-6xl"
                     />
+                    
                 )}
+            </div>
+            <div className="flex items-center justify-center">
+                 <ProjectsGrid/>
+
             </div>
         </div>
     );

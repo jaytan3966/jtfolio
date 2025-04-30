@@ -1,15 +1,12 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from './context/themecontext';
-import { useInView } from 'react-intersection-observer';
-
 import Loading from './components/loading';
 import Navbar from './components/navbar';
 import Introduction from './components/introduction';
-import Projects from './components/projects';
-import Experience from './components/experience';
-import Contact from './components/contact';
+import Projects from './components/sections/projects';
+import Experience from './components/sections/experience';
+import Contact from './components/sections/contact';
 import Back from './components/back';
 
 export default function Home() {
@@ -47,7 +44,6 @@ export default function Home() {
           
         </header>
         <main className={`items-center p-4 font-mono sm:2xl`}>
-          
           <div ref={projectsRef}><Projects /></div>
           <div ref={expRef}><Experience /></div>
           <div ref={contactRef}><Contact /></div>
