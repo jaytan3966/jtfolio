@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRef } from 'react';
 import { useTheme } from './context/themecontext';
+import { useInView } from 'react-intersection-observer';
 
 import Loading from './components/loading';
 import Navbar from './components/navbar';
@@ -52,13 +53,13 @@ export default function Home() {
           <div ref={contactRef}><Contact /></div>
         </main>
         <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
+        
       </div>
     );
   }
   return (
     <main className={`flex flex-col items-center justify-center min-h-screen transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Loading />
-      
     </main>
     
   );

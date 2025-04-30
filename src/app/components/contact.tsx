@@ -1,15 +1,28 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useRef } from "react";
 
-export default function Contact() {
+export default function Experience() {
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: 0.8,
+        threshold: 0.1,
     });
 
+    const containerRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (inView && containerRef.current) {
+            containerRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }, [inView]);
+
     return (
-        <div ref={ref} className="flex flex-col p-8 min-h-screen">
+        
+        <div ref={containerRef} className="flex flex-col p-8 min-h-screen">
+            <div ref={ref}>
             {inView && (
                 <TypeAnimation 
                 sequence={[
@@ -26,5 +39,7 @@ export default function Contact() {
                     className="text-6xl"/>
             )}
         </div>
+    </div>
     );
 }
+

@@ -35,7 +35,7 @@ export default function Navbar({aboutRef, projectsRef, expRef, contactRef}: Navb
                 onClick={toggleTheme}
                 className={`
                     relative w-9 h-6 md:w-14 md:h-8 rounded-full p-1 transition-all duration-300 cursor-pointer
-                    ${isDarkMode ? 'bg-gray-900 shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] ring-gray-600/30' : 'bg-gray-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] ring-gray-400/20'}
+                    ${isDarkMode ? 'bg-black shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] ring-gray-600/30' : 'bg-gray-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] ring-gray-400/20'}
                     ring-1 hover:ring-2
                         shadow-lg hover:shadow-xl
                         active:scale-[0.98]`}

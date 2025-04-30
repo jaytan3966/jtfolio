@@ -25,7 +25,7 @@ export default function Back({ aboutRef }: NavbarProps) {
                 className={`
                     w-12 h-12 flex items-center justify-center 
                     ${isDarkMode 
-                        ? "bg-gray-900 text-white hover:bg-white hover:text-black shadow-lg" 
+                        ? "bg-black text-white hover:bg-white hover:text-black shadow-lg" 
                         : "text-black bg-white hover:bg-gray-900 hover:text-white shadow-md"
                     }
                     rounded-full 
