@@ -8,6 +8,7 @@ import Projects from './components/sections/projects';
 import Experience from './components/sections/experience';
 import Contact from './components/sections/contact';
 import Back from './components/back';
+import NightLight from './components/nightlight';
 
 export default function Home() {
   
@@ -16,7 +17,7 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null);
   const expRef = useRef<HTMLDivElement | null>(null);
 
-  const [currentPage, setCurrentPage] = useState('loading');
+  const [currentPage, setCurrentPage] = useState('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { isDarkMode } = useTheme();
 
@@ -49,6 +50,7 @@ export default function Home() {
           <div ref={contactRef}><Contact /></div>
         </main>
         <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} contactRef={contactRef}/>
+        <NightLight/>
         
       </div>
     );

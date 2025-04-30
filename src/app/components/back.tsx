@@ -19,14 +19,14 @@ export default function Back({ aboutRef }: NavbarProps) {
     if (!mounted) return null;
 
     return createPortal(
-        <div className="fixed bottom-0 right-0 p-4 md:p-6 z-50">
+        <div className="fixed bottom-0 right-0 p-3 z-50">
             <button
                 onClick={() => handleScrollDown(aboutRef)}
                 className={`
                     w-12 h-12 flex items-center justify-center 
                     ${isDarkMode 
-                        ? "bg-black text-white hover:bg-white hover:text-black shadow-lg" 
-                        : "text-black bg-white hover:bg-gray-900 hover:text-white shadow-md"
+                        ? "bg-white text-black hover:bg-black hover:text-white shadow-lg" 
+                        : "text-white bg-black hover:bg-white hover:text-black shadow-md"
                     }
                     rounded-full 
                     transition-all duration-300 ease-in-out 

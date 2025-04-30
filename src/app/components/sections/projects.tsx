@@ -1,7 +1,7 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProjectsGrid from "../projectsGrid";
 
 export default function Projects() {
@@ -9,7 +9,7 @@ export default function Projects() {
         triggerOnce: true,
         threshold: 0.1,
     });
-    
+    const [animate, setAnimate] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     
     useEffect(() => {
@@ -18,13 +18,16 @@ export default function Projects() {
                 behavior: 'smooth',
                 block: 'start'
             });
+            setTimeout(() => {
+                setAnimate(true);
+            }, 540);
         }
     }, [inView]);
 
     return (
         <div ref={containerRef} className="flex flex-col px-2 py-8 min-h-screen">
             <div ref={ref} className="mb-8 font-bold">
-                {inView && (
+                {animate && (
                     <TypeAnimation
                         sequence={[
                             "> ", 80,
@@ -46,7 +49,6 @@ export default function Projects() {
             </div>
             <div className="flex items-center justify-center">
                  <ProjectsGrid/>
-
             </div>
         </div>
     );
