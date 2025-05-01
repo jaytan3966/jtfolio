@@ -1,33 +1,18 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef, useState } from "react";
-import ProjectsGrid from "../projectsGrid";
+import ProjectsGrid from "../boxGrids/projectsGrid";
 
 export default function Projects() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
-    const [animate, setAnimate] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        if (inView && containerRef.current) {
-            containerRef.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            setTimeout(() => {
-                setAnimate(true);
-            }, 540);
-        }
-    }, [inView]);
 
     return (
-        <div ref={containerRef} className="flex flex-col px-2 py-8 min-h-screen">
+        <div className="flex flex-col px-2 py-8 min-h-screen">
             <div ref={ref} className="mb-8 font-bold">
-                {animate && (
+                {inView && (
                     <TypeAnimation
                         sequence={[
                             "> ", 80,
@@ -40,7 +25,7 @@ export default function Projects() {
                             "> Project", 80,
                             "> Projects", 80,
                         ]}
-                        speed={15}
+                        speed={99}
                         cursor={false}
                         className="text-6xl"
                     />

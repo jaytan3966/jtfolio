@@ -1,7 +1,6 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef, useState } from "react";
 
 export default function Experience() {
     const { ref, inView } = useInView({
@@ -9,26 +8,10 @@ export default function Experience() {
         threshold: 0.1,
     });
 
-    const [animate, setAnimate] = useState(false); 
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (inView && containerRef.current) {
-            containerRef.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            setTimeout(() => {
-                setAnimate(true);
-            }, 540);
-        }
-    }, [inView]);
-
     return (
-        
-        <div ref={containerRef} className="flex flex-col p-8 min-h-screen">
+        <div className="flex flex-col px-2 py-8 min-h-screen">
             <div ref={ref} className="mb-8 font-bold">
-            {animate && (
+            {inView && (
                 <TypeAnimation 
                 sequence={[
                     "> ", 90,
@@ -39,7 +22,7 @@ export default function Experience() {
                     "> Conta", 90, 
                     "> Contac", 90, 
                     "> Contact", 90]} 
-                    speed={15} 
+                    speed={99} 
                     cursor={false} 
                     className="text-6xl"/>
             )}

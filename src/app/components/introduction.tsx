@@ -1,12 +1,32 @@
 "use client";
 import { handleScrollDown, NavbarProps } from "./navbar";
 import { useTheme } from "../context/themecontext";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Introduction({projectsRef, expRef, contactRef}: NavbarProps) {
     const {isDarkMode} = useTheme();
     return (
         <div className="p-8 min-h-screen grid md:grid-cols-2 items-center justify-center text-center text-wrap">
-            <h1 className="text-6xl lg:text-7xl font-bold mb-4">Hey, I'm Jayden!</h1>
+            <TypeAnimation
+                        sequence={[
+                            "H", 50,
+                            "He", 50,
+                            "Hey", 50,
+                            "Hey,", 50,
+                            "Hey, I", 50,
+                            "Hey, I'm", 50,
+                            "Hey, I'm J", 50,
+                            "Hey, I'm Ja", 50,
+                            "Hey, I'm Jay", 50,
+                            "Hey, I'm Jayd", 50,
+                            "Hey, I'm Jayde", 50,
+                            "Hey, I'm Jayden", 50,
+                            "Hey, I'm Jayden!", 50,
+                        ]}
+                        speed={79}
+                        cursor={false}
+                        className="text-6xl lg:text-7xl font-bold mb-4"
+                    />
             <div className="md:text-lg lg:text-2xl">
                 <h2 className="mb-4">I'm a first year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack web development. Thanks for taking the time to check out my website!</h2>
                 <h2 className="mb-4">When I'm not at the computer coding away, I enjoy spending my time watching movies, playing tennis (or any racquet sport), and jamming to my Spotify playlists. </h2>

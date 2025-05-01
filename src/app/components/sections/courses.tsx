@@ -1,9 +1,9 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
-import ExperienceGrid from "../boxGrids/experienceGrid";
+import CourseGrid from "../boxGrids/courseGrid";
 
-export default function Experience() {
+export default function Courses() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -14,24 +14,21 @@ export default function Experience() {
             <div ref={ref} className="mb-8 font-bold">
             {inView && (
                 <TypeAnimation sequence={[
-                    "> ", 60,
-                    "> E", 60, 
-                    "> Ex", 60, 
-                    "> Exp", 60, 
-                    "> Expe", 60, 
-                    "> Exper", 60, 
-                    "> Experi", 60, 
-                    "> Experie", 60, 
-                    "> Experien", 60, 
-                    "> Experienc", 60, 
-                    "> Experience", 60]} 
+                    "> ", 90,
+                    "> C", 90, 
+                    "> Co", 90, 
+                    "> Cou", 90, 
+                    "> Cour", 90, 
+                    "> Cours", 90, 
+                    "> Course", 90, 
+                    "> Courses", 90]} 
                     speed={99} 
                     cursor={false} 
                     className="text-6xl"/>
             )}
         </div>
         <div className="flex items-center justify-center">
-            <ExperienceGrid/>
+            <CourseGrid/>
         </div>
     </div>
     );
