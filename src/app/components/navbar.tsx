@@ -15,14 +15,15 @@ export const handleScrollDown = (
         top: ref.current.offsetTop,
         behavior: "smooth",
         });
-}
+    }
 };
+
+export const handleRefresh = () => {
+    window.location.reload();
+}
 
 export default function Navbar({projectsRef, expRef, courseRef, contactRef}: NavbarProps) {
 
-    const handleRefresh = () => {
-      window.location.reload();
-    }
     return (
         <div className={`flex fixed justify-between w-[100%] top-0 left-0 text-l md:text-xl font-mono p-4 md:p-6`}>
             <div className="flex space-x-5 md:space-x-8">

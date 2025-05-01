@@ -30,7 +30,7 @@ export default function CourseBox(){
                 className="w-full hover:opacity-30 hover:cursor-pointer transition-all duration-500"/> 
             </Link>
             <div className="mx-3 my-2 font-bold flex items-end text-center">
-                <h1 className="text-lg md:text-xl mr-1 md:mr-2">{"<"}Nyan Shibar className="Comp Sci"{">"}</h1>
+                <h1 className="text-lg md:text-xl">{"<"}Nyan Shibar className="Comp Sci"{">"}</h1>
             </div>
             
             <p className={`text-center mb-2 mx-2 ${isDarkMode ? "text-gray-700" : "text-gray-500"} transition-all duration-500`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

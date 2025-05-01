@@ -5,31 +5,31 @@ import CourseGrid from "../boxGrids/courseGrid";
 
 export default function Courses() {
     const { ref, inView } = useInView({
-        triggerOnce: true,
         threshold: 0.1,
     });
 
     return (
-        <div className="flex flex-col px-2 py-8 min-h-screen">
-            <div ref={ref} className="mb-8 font-bold">
-            {inView && (
-                <TypeAnimation sequence={[
-                    "> ", 90,
-                    "> C", 90, 
-                    "> Co", 90, 
-                    "> Cou", 90, 
-                    "> Cour", 90, 
-                    "> Cours", 90, 
-                    "> Course", 90, 
-                    "> Courses", 90]} 
-                    speed={99} 
-                    cursor={false} 
-                    className="text-6xl"/>
-            )}
+        <div className="flex flex-col px-2 py-4 min-h-screen">
+            <div ref={ref} className="flex mb-8 font-bold text-6xl">
+                <h1 className="mr-2 md:mr-4">{"> "}</h1>
+                {inView && (
+                    <TypeAnimation sequence={[
+                        "", 80,
+                        "C", 80, 
+                        "Co", 80, 
+                        "Cou", 80, 
+                        "Cour", 80, 
+                        "Cours", 80, 
+                        "Course", 80, 
+                        "Courses", 80]} 
+                        speed={75} 
+                        cursor={false} 
+                        />
+                )}
+            </div>
+            <div className="flex items-center justify-center">
+                <CourseGrid/>
+            </div>
         </div>
-        <div className="flex items-center justify-center">
-            <CourseGrid/>
-        </div>
-    </div>
     );
 }

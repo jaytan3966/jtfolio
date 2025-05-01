@@ -4,32 +4,30 @@ import { useInView } from "react-intersection-observer";
 import ProjectsGrid from "../boxGrids/projectsGrid";
 
 export default function Projects() {
+
     const { ref, inView } = useInView({
-        triggerOnce: true,
         threshold: 0.1,
     });
 
     return (
-        <div className="flex flex-col px-2 py-8 min-h-screen">
-            <div ref={ref} className="mb-8 font-bold">
+        <div className="flex flex-col px-2 py-4 min-h-screen">
+            <div ref={ref} className="flex mb-8 font-bold text-6xl">
+                <h1 className="mr-2 md:mr-4">{"> "}</h1>
                 {inView && (
                     <TypeAnimation
                         sequence={[
-                            "> ", 80,
-                            "> P", 80,
-                            "> Pr", 80,
-                            "> Pro", 80,
-                            "> Proj", 80,
-                            "> Proje", 80,
-                            "> Projec", 80,
-                            "> Project", 80,
-                            "> Projects", 80,
+                            "P", 70,
+                            "Pr", 70,
+                            "Pro", 70,
+                            "Proj", 70,
+                            "Proje", 70,
+                            "Projec", 70,
+                            "Project", 70,
+                            "Projects", 70,
                         ]}
-                        speed={99}
+                        speed={75}
                         cursor={false}
-                        className="text-6xl"
-                    />
-                    
+                    />   
                 )}
             </div>
             <div className="flex items-center justify-center">
