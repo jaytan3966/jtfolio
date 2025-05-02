@@ -13,7 +13,6 @@ import Experience from './components/sections/experience';
 import Courses from './components/sections/courses';
 import Contact from './components/sections/contact';
 
-
 export default function Home() {
   
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -58,7 +57,6 @@ export default function Home() {
         </main>
         <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} contactRef={contactRef}/>
         <NightLight/>
-        
       </div>
     );
   }

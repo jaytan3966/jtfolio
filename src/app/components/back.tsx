@@ -29,7 +29,7 @@ export default function Back({ aboutRef }: NavbarProps) {
                         : "text-black bg-white hover:bg-black hover:text-white shadow-md"
                     }
                     rounded-full 
-                    transition-all duration-300 ease-in-out 
+                    transition-all duration-500 ease-in-out 
                     outline-none focus:outline-none
                     shadow-[0_4px_14px_-2px_rgba(0,0,0,0.15)] 
                     hover:shadow-[0_6px_20px_-2px_rgba(0,0,0,0.25)]
