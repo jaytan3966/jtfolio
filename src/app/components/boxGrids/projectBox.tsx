@@ -47,7 +47,7 @@ export default function Projectbox(){
                     )
                 })}
             </div>
-            <div className="mx-3 my-3 text-xl font-bold md:text-2xl">
+            <div className="mx-3 my-3 text-lg font-bold md:text-xl">
                 <h1>{"</"}Nyan Shibar{">"}</h1>
             </div>
         </div>
