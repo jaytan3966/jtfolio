@@ -28,6 +28,8 @@ export default function Back({ aboutRef }: NavbarProps) {
                         ? "bg-black text-white hover:bg-white hover:text-black shadow-lg" 
                         : "text-black bg-white hover:bg-black hover:text-white shadow-md"
                     }
+                    hover:-translate-y-1
+                    cursor-pointer
                     rounded-full 
                     transition-all duration-500 ease-in-out 
                     outline-none focus:outline-none

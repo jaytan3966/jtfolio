@@ -9,9 +9,9 @@ export function sendEmail(data: FormData) {
   }) 
   .then((res) => res.json())
   .then((response) => {
-    
+    return response;
   })
   .catch((err) => {
-    
+    console.error(err);
   })
 }
