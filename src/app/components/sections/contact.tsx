@@ -42,13 +42,6 @@ export default function Contact() {
             border: "1px solid #2d4849", 
             fontFamily: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'},
     });
-    const failed = () => toast.error("error sending email", {
-        style: { 
-            background: isDarkMode ? "black" : "white",
-            color: isDarkMode ? "white" : "black",
-            border: "1px solid #2d4849", 
-            fontFamily: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'},
-    });
 
     const formRef = useRef<HTMLFormElement>(null);
 
