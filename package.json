@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.812.0",
+    "@aws-sdk/lib-dynamodb": "^3.812.0",
+    "@aws-sdk/util-dynamodb": "^3.812.0",
     "@formspree/react": "^3.0.0",
     "@types/nodemailer": "^6.4.17",
     "next": "^15.3.1",

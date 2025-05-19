@@ -8,11 +8,11 @@ function randomDelay() {
 
 function getDate(){
     const date = new Date();
-    let month = date.getUTCMonth() + 1; // Months are zero-based in JavaScript
+    let month = date.getUTCMonth() + 1;
     let returnedMonth = month.toString();
     
     if (month < 10) {
-        returnedMonth = '0' + month; // Add leading zero for single-digit months
+        returnedMonth = '0' + month; 
     }
     return [returnedMonth, date.getDate().toString(), date.getFullYear().toString()];
 }
