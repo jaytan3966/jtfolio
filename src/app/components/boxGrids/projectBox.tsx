@@ -64,9 +64,9 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
             </Link>
             
             <div className="flex-grow flex flex-col p-2">
-                <div className="font-bold">
-                    <h1 className="text-lg md:text-xl">{"<"}{name} created="{date}"{">"}</h1>
-                </div>
+
+                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} created="{date}"{">"}</h1>
+
                 
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
                     <p className={`text-center ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
@@ -87,9 +87,8 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
                     ))}
                 </div>
                 
-                <div className="font-bold">
-                    <h1 className="text-md lg:text-xl">{"</"}{name}{">"}</h1>
-                </div>
+                <h1 className="text-lg lg:text-xl font-bold">{"</"}{name}{">"}</h1>
+
             </div>
         </div>
     )

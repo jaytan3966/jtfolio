@@ -4,7 +4,15 @@ import { useTheme } from "@/app/context/themecontext";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
-export default function CourseBox(){
+export interface CourseProps{
+    name: string,
+    courseTitle: string,
+    description: string,
+    lessons: string[],
+    href: string,
+}
+
+export default function CourseBox({name, courseTitle, description, lessons, href}: CourseProps){
     
     const [isTransitioning, setIsTransitioning] = useState(true);
 
@@ -20,12 +28,16 @@ export default function CourseBox(){
         }
     }, [inView]);
     const {isDarkMode} = useTheme();
-    const lessons = ["Learn", "Learn", "Learn"];
 
     return (
-        <div ref={ref} className={`box-border border-4 rounded-sm max-w-[47vw] ${isDarkMode ? "border-white" : "border-black"} ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} transition-all duration-600`}>
+        <div ref={ref} className={`box-border border-4 flex flex-col rounded-sm max-w-[47vw] h-full ${
+                isDarkMode ? "border-white" : "border-black"
+            } ${
+                isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+            } transition-all duration-600`}
+        >
             <Link 
-                href={"https://www.codeninjas.com/ca-folsom"} 
+                href={href} 
                 target="_blank" 
                 className="flex-shrink-0 relative group overflow-hidden"
                 >
@@ -54,26 +66,31 @@ export default function CourseBox(){
                     </div>
                 </div>
             </Link>
-            <div className="mx-3 my-2 font-bold flex items-end text-center">
-                <h1 className="text-lg md:text-xl">{"<"}Nyan Shibar className="Comp Sci"{">"}</h1>
-            </div>
-            
-            <p className={`text-center mb-2 mx-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"} transition-all duration-500`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div>
-                {lessons.map((name, i) => {
-                    return (
-                        <button 
-                        className={`mx-3 my-2 px-2 py-1 box-border rounded-xl ${isDarkMode ? "bg-gray-800 text-gray-250" : "bg-gray-300 text-gray-800"} text-xs transition-all duration-500 hover:cursor-pointer`}
-                        key={i}
-                        >
-                            {"<"}{name} {i+1}{"/>"}
-                        </button>
-                    
-                    )
-                })}
-            </div>
-            <div className="mx-3 my-3 text-lg font-bold md:text-xl">
-                <h1>{"</"}Nyan Shibar{">"}</h1>
+            <div className="flex-grow flex flex-col p-2">
+                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} className="{courseTitle}"{">"}</h1>
+
+                
+               <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
+                    <p className={`text-center ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>{description}</p>
+                </div>
+                <div className="flex flex-wrap gap-x-5 gap-y-2 m-3">
+                    {lessons.map((name, i) => {
+                        return (
+                            <button 
+                            className={`px-2 py-1 rounded-xl text-xs ${
+                                isDarkMode ? "bg-gray-800 text-gray-250" : "bg-gray-300 text-gray-800"
+                            } transition-all duration-500 hover:cursor-pointer`}
+                            key={i}
+                            >
+                                {"<"}{name}{"/>"}
+                            </button>
+                        
+                        )
+                    })}
+                </div>
+
+                <h1 className="text-lg lg:text-xl font-bold">{"</"}{name}{">"}</h1>
+
             </div>
             
         </div>

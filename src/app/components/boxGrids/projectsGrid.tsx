@@ -15,7 +15,7 @@ rawDate: Date;  // Temporary field for sorting
 }
   
 
-async function getProjects(){
+async function getGitInfo(){
     const response = await fetch("https://api.github.com/users/jaytan3966/repos", {
         headers: {
             'Authorization': `${process.env.GITHUB_TOKEN}`,
@@ -46,11 +46,22 @@ export default function ProjectsGrid(){
 
     const [projects, setProjects] = useState<ProjectboxProps[]>([]);
     useEffect(() => {
-        const fetchProjects = async () => {
-            const projects = await getProjects();
+        const fetchGit = async () => {
+            const projects = await getGitInfo();
             setProjects(projects);
         };
-        fetchProjects();
+        fetchGit();
+    }, []);
+
+    useEffect(() => {
+        async function getProjs(){
+            let response = await fetch("/api/db?type=PROJECT");
+            if (response.ok){
+                const data = await response.json();
+                return data;
+            }
+        }
+        getProjs();
     }, []);
     
     return (

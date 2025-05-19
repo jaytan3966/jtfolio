@@ -25,12 +25,12 @@ export default function Contact() {
     const {isDarkMode} = useTheme();
 
     useEffect(() => {
-            if (inView){
-                setIsTransitioning(false);
-            } else {
-                setIsTransitioning(true);
-            }
-        }, [inView]);
+        if (inView){
+            setIsTransitioning(false);
+        } else {
+            setIsTransitioning(true);
+        }
+    }, [inView]);
     
     const placeholders = {"name":"Steve Jobs", "email":"stevejobs@apple.com", "company":"Apple", "message": "Let's have a coffee chat..."};
     const {register, handleSubmit } = useForm<FormData>();
