@@ -22,7 +22,7 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null);
 
 
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('loading');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { isDarkMode } = useTheme();
 

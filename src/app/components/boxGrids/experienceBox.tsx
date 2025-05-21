@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "@/app/context/themecontext";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-
+import Image from "next/image";
 export interface ExpProps{
     name: string,
     title: string,
@@ -29,8 +29,21 @@ export default function ExperienceBox({name, title, description, skills, href}: 
     }, [inView]);
     const {isDarkMode} = useTheme();
 
+    const [img, setImg] = useState("https://jtfolio-imgs.s3.amazonaws.com/jtfolio-projects/Quizki.png");
+
+    useEffect(() => {
+        async function getImg(){
+            let response = await fetch(`http://localhost:3000/api/images?type=experience&name=${name}`);
+            if (response.ok){
+                const data = await response.text();
+                setImg(data);
+            }
+        }
+        getImg();
+    }, []);
+
     return (
-        <div ref={ref} className={`box-border border-4 flex flex-col rounded-sm max-w-[47vw] h-full ${
+        <div ref={ref} className={`box-border border-3 flex flex-col rounded-sm max-w-[47vw] h-full ${
                 isDarkMode ? "border-white" : "border-black"
             } ${
                 isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
@@ -42,11 +55,15 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                 className="flex-shrink-0 relative group overflow-hidden"
                 >
                 <div className="relative">
-                    <img 
-                    title="View this company"
-                    src="https://4kids.com/wp-content/uploads/2021/01/MdFdBdCFsFJGQ2GQtkTvUZ08n.jpg"
-                    className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
-                    />
+
+                    <Image 
+                        title={`View ${name}`}
+                        width={500}
+                        height={300}
+                        src={`${img}`}
+                        className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
+                        alt={name}
+                        />
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <svg 

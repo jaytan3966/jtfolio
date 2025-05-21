@@ -83,7 +83,7 @@ export default function Contact() {
                                     theme='light'
                                     className={`font-mono z-10`}/>
                 <form ref={formRef} onSubmit={handleSubmit(onSubmit)}>
-                    <div className="mx-6 my-3 font-bold flex items-end text-center">
+                    <div className="p-2 font-bold flex items-end text-center">
                         <h1 className="text-xl md:text-3xl">{"<"}form{">"}</h1>
                     </div>
                     {(Object.entries(placeholders) as [FormField, string][]).map(([name, placeholders], i) => {
@@ -119,7 +119,7 @@ export default function Contact() {
                         <button type="submit"
                         className={`cursor-pointer font-bold gap-4 text-center box-border border-4 min-w-[85vw] max-w-[90vw] h-[50px] ${isDarkMode ? "border-white hover:bg-white hover:text-black" : "border-black hover:bg-black hover:text-white"} transition-all duration-500`} >SUBMIT</button>
                     </div>
-                    <div className="mx-6 my-3 font-bold flex items-end text-center">
+                    <div className="p-2 font-bold flex items-end text-center">
                         <h1 className="text-xl md:text-3xl">{"</"}form{">"}</h1>
                     </div>
                 </form>

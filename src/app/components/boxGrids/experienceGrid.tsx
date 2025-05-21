@@ -12,7 +12,6 @@ export default function ExperienceGrid(){
             let response = await fetch("/api/db?type=EXPERIENCE");
             if (response.ok){
                 const data = await response.json();
-                console.log(data);
                 setExp(data);
             }
         }

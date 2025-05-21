@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "@/app/context/themecontext";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface ProjectboxProps {
     name: string;
@@ -17,9 +18,22 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
     const { ref, inView } = useInView({ threshold: 0.1 });
     const { isDarkMode } = useTheme();
 
+    const [img, setImg] = useState("https://jtfolio-imgs.s3.amazonaws.com/jtfolio-projects/Quizki.png");
+
     useEffect(() => {
         setIsTransitioning(!inView);
     }, [inView]);
+
+    useEffect(() => {
+        async function getImg(){
+            let response = await fetch(`http://localhost:3000/api/images?type=projects&name=${name}`);
+            if (response.ok){
+                const data = await response.text();
+                setImg(data);
+            }
+        }
+        getImg();
+    }, []);
 
     return (
         <div 
@@ -36,13 +50,14 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
                 className="flex-shrink-0 relative group overflow-hidden"
                 >
                 <div className="relative">
-                    <img 
-                    title="View this project"
-                    src="https://no-cdn.shortpixel.ai/client/to_avif,q_lossy,ret_wait/https://shortpixel.com/blog/wp-content/uploads/2023/12/nyan-cat.gif"
+                    <Image 
+                    title={`View ${name}`}
+                    width={500}
+                    height={300}
+                    src={`${img}`}
                     className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
                     alt={name}
                     />
-                    
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <svg 
@@ -67,7 +82,6 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
 
                 <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} created="{date}"{">"}</h1>
 
-                
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
                     <p className={`text-center ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
                         {description}
