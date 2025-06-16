@@ -34,7 +34,7 @@ export default function CourseBox({name, courseTitle, description, lessons, href
 
     useEffect(() => {
         async function getImg(){
-            const response = await fetch(`http://localhost:3000/api/images?type=courses&name=${name}`);
+            const response = await fetch(`/api/images?type=courses&name=${name}`);
             if (response.ok){
                 const data = await response.text();
                 setImg(data);
