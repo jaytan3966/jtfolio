@@ -91,7 +91,7 @@ export default function Contact() {
                             <div className="mx-[5vw] my-[2vh] max-h-[33vh] font-bold flex flex-col" key={i}>
                                 {name !== "message" ? (
                                     <div className="gap-4">
-                                        <h1 className="text-lg md:text-2xl" title="Required">{"<"}{name}{"/>*"}</h1>
+                                        <h1 className="text-lg md:text-2xl" title="Required">{"<"}{name}{"*/>"}</h1>
                                         <div className="flex items-center justify-center">
                                             <input
                                             {...register(name, { required: true })} 
@@ -102,7 +102,7 @@ export default function Contact() {
                                     </div>
                                 ) : (
                                     <div className="gap-4">
-                                        <h1 className="text-lg md:text-2xl">{"<"}{name}{"/>"}</h1>
+                                        <h1 className="text-lg md:text-2xl">{"<"}{name}{"*/>"}</h1>
                                         <div className="flex items-center justify-center">
                                             <textarea
                                             {...register(name, { required: true })} 
