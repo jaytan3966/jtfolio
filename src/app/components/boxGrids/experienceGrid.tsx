@@ -9,7 +9,7 @@ export default function ExperienceGrid(){
 
     useEffect(() => {
         async function getExp(){
-            let response = await fetch("/api/db?type=EXPERIENCE");
+            const response = await fetch("/api/db?type=EXPERIENCE");
             if (response.ok){
                 const data = await response.json();
                 setExp(data);

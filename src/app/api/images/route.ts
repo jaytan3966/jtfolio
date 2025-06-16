@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
 
-const s3 = new S3Client({
-    credentials: {
-        accessKeyId: process.env.NEXT_PUBLIC_DYNAMODB_ACCESS_KEY as string, 
-        secretAccessKey: process.env.NEXT_PUBLIC_DYNAMODB_SECRET_KEY as string,
-    },
-    region: process.env.NEXT_PUBLIC_AWS_REGION
-});
+// const s3 = new S3Client({
+//     credentials: {
+//         accessKeyId: process.env.NEXT_PUBLIC_DYNAMODB_ACCESS_KEY as string, 
+//         secretAccessKey: process.env.NEXT_PUBLIC_DYNAMODB_SECRET_KEY as string,
+//     },
+//     region: process.env.NEXT_PUBLIC_AWS_REGION
+// });
 
 export async function GET(request: Request){
     const { searchParams } = new URL(request.url);

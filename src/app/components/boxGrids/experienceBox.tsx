@@ -33,7 +33,7 @@ export default function ExperienceBox({name, title, description, skills, href}: 
 
     useEffect(() => {
         async function getImg(){
-            let response = await fetch(`http://localhost:3000/api/images?type=experience&name=${name}`);
+            const response = await fetch(`http://localhost:3000/api/images?type=experience&name=${name}`);
             if (response.ok){
                 const data = await response.text();
                 setImg(data);

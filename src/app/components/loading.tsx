@@ -2,13 +2,13 @@
 import { TypeAnimation } from "react-type-animation";
 
 function randomDelay() {
-    let delay = Math.floor(Math.random() * 500) + 5150;
+    const delay = Math.floor(Math.random() * 500) + 5150;
     return [delay, (delay-2150).toString()];
 }
 
 function getDate(){
     const date = new Date();
-    let month = date.getUTCMonth() + 1;
+    const month = date.getUTCMonth() + 1;
     let returnedMonth = month.toString();
     
     if (month < 10) {

@@ -8,7 +8,7 @@ export default function CourseGrid(){
     const [courses, setCourses] = useState<CourseProps[]>([]);
     useEffect(() => {
         async function getCourses(){
-            let response = await fetch("/api/db?type=COURSES");
+            const response = await fetch("/api/db?type=COURSES");
             if (response.ok){
                 const data = await response.json();
                 setCourses(data);

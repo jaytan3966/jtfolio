@@ -58,7 +58,7 @@ export default function ProjectsGrid(){
 
     useEffect(() => {
         async function getProjs(){
-            let response = await fetch("/api/db?type=PROJECT");
+            const response = await fetch("/api/db?type=PROJECT");
             if (response.ok){
                 const data = await response.json();
                 return data;
