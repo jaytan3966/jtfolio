@@ -5,7 +5,7 @@ import { useTheme } from './context/themecontext';
 import Loading from './components/loading';
 import Navbar from './components/navbar';
 import Back from './components/back';
-import NightLight from './components/nightlight';
+import SocialMedia from './components/socialMedia';
 
 import Introduction from './components/introduction';
 import Projects from './components/sections/projects';
@@ -56,7 +56,7 @@ export default function Home() {
           <div ref={contactRef}><Contact /></div>
         </main>
         <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} contactRef={contactRef}/>
-        <NightLight/>
+        <SocialMedia/>
       </div>
     );
   }
