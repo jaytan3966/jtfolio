@@ -30,7 +30,7 @@ export default function CourseBox({name, courseTitle, description, lessons, href
     }, [inView]);
     const {isDarkMode} = useTheme();
 
-    const [img, setImg] = useState("https://jtfolio-imgs.s3.amazonaws.com/jtfolio-projects/Quizki.png");
+    const [img, setImg] = useState("https://t3.ftcdn.net/jpg/14/76/46/56/360_F_1476465691_cQ1VSaBfjtllBOyhBUDwDV4tUB1u4PCC.jpg");
 
     useEffect(() => {
         async function getImg(){

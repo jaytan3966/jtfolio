@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 module.exports = {
   images: {
-    domains: ['jtfolio-imgs.s3.amazonaws.com'],
+    domains: ['jtfolio-imgs.s3.amazonaws.com', 't3.ftcdn.net'],
   },
 };
 
