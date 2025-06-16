@@ -10,38 +10,38 @@ interface GitHubProject {
     url: string;
     gif: string;
 }
+interface GitHubApiResponse {
+    name: string;
+    description: string | null;
+    created_at: string;
+    topics: string[];
+    html_url: string;
+    homepage: string | null;
+} 
 
-interface ProjectWithRawDate extends GitHubProject {
-    rawDate: Date; 
-}
-  
-
-async function getGitInfo(){
+async function getGitInfo(): Promise<GitHubProject[]> {
     const response = await fetch("https://api.github.com/users/jaytan3966/repos", {
         headers: {
             'Authorization': `${process.env.GITHUB_TOKEN}`,
         }
     });
-    const data = await response.json();
+    const data: GitHubApiResponse[] = await response.json();
 
-    const projects: ProjectWithRawDate[] = data.map((project: any) => {
-    const date = new Date(project.created_at);
-    return {
-        name: project.name,
-        description: project.description,
-        date: `${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`,
-        techs: project.topics,
-        url: project.html_url,
-        gif: project.homepage,
-        rawDate: date
-    };
-    });
+    // Create and sort in one step without storing rawDate
+    return data
+        .map((project) => ({
+            name: project.name,
+            description: project.description || '',
+            date: formatDate(new Date(project.created_at)),
+            techs: project.topics,
+            url: project.html_url,
+            gif: project.homepage || '',
+        }))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 
-    projects.sort((a, b) => b.rawDate.getTime() - a.rawDate.getTime());
-
-    const sortedProjects: GitHubProject[] = projects.map(({rawDate, ...rest }) => rest);
-
-    return sortedProjects;
+function formatDate(date: Date): string {
+    return `${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
 }
 
 export default function ProjectsGrid(){
