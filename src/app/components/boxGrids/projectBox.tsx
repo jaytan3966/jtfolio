@@ -11,9 +11,10 @@ export interface ProjectboxProps {
     description: string;
     techs: string[];
     url: string;
+    gif: string;
 }
 
-export default function Projectbox({ name, date, description, techs, url }: ProjectboxProps) {
+export default function Projectbox({ name, date, description, techs, url, gif}: ProjectboxProps) {
     const [isTransitioning, setIsTransitioning] = useState(true);
     const { ref, inView } = useInView({ threshold: 0.1 });
     const { isDarkMode } = useTheme();
@@ -24,16 +25,16 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
         setIsTransitioning(!inView);
     }, [inView]);
 
-    useEffect(() => {
-        async function getImg(){
-            let response = await fetch(`http://localhost:3000/api/images?type=projects&name=${name}`);
-            if (response.ok){
-                const data = await response.text();
-                setImg(data);
-            }
-        }
-        getImg();
-    }, []);
+    // useEffect(() => {
+    //     async function getImg(){
+    //         let response = await fetch(`http://localhost:3000/api/images?type=projects&name=${name}`);
+    //         if (response.ok){
+    //             const data = await response.text();
+    //             setImg(data);
+    //         }
+    //     }
+    //     getImg();
+    // }, []);
 
     return (
         <div 
@@ -50,14 +51,19 @@ export default function Projectbox({ name, date, description, techs, url }: Proj
                 className="flex-shrink-0 relative group overflow-hidden"
                 >
                 <div className="relative">
-                    <Image 
+                    <img 
+                    title={`View ${name}`}
+                    src={`${gif}`}
+                    className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
+                    />
+                    {/* <Image 
                     title={`View ${name}`}
                     width={500}
                     height={300}
                     src={`${img}`}
                     className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
                     alt={name}
-                    />
+                    /> */}
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <svg 

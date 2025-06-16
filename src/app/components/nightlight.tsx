@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { NavbarProps, handleScrollDown } from "./navbar";
 import { useTheme } from "../context/themecontext";
 
 export default function NightLight() {

@@ -8,6 +8,7 @@ interface GitHubProject {
     date: string;
     techs: string[];
     url: string;
+    gif: string;
 }
 
 interface ProjectWithRawDate extends GitHubProject {
@@ -31,6 +32,7 @@ async function getGitInfo(){
         date: `${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`,
         techs: project.topics,
         url: project.html_url,
+        gif: project.homepage,
         rawDate: date
     };
     });
@@ -45,6 +47,7 @@ async function getGitInfo(){
 export default function ProjectsGrid(){
 
     const [projects, setProjects] = useState<ProjectboxProps[]>([]);
+    
     useEffect(() => {
         const fetchGit = async () => {
             const projects = await getGitInfo();
@@ -69,7 +72,7 @@ export default function ProjectsGrid(){
             {projects.map((proj) => {
                 return (
                     <div key={proj.name}>
-                        <Projectbox name={proj.name} date={proj.date} description={proj.description} techs={proj.techs} url={proj.url}/>
+                        <Projectbox name={proj.name} date={proj.date} description={proj.description} techs={proj.techs} url={proj.url} gif={proj.gif}/>
                     </div>
                 )
             })}
