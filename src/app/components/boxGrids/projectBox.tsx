@@ -64,7 +64,7 @@ export default function Projectbox({ name, date, description, techs, url, gif}: 
             
             <div className="flex-grow flex flex-col p-2">
 
-                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} created="{date}"{">"}</h1>
+                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} created=&quot;{date}&quot;{">"}</h1>
 
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
                     <p className={`text-center ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>

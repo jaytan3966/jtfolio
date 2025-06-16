@@ -39,7 +39,7 @@ async function getGitInfo(){
 
     projects.sort((a, b) => b.rawDate.getTime() - a.rawDate.getTime());
 
-    const sortedProjects: GitHubProject[] = projects.map(({ rawDate, ...rest }) => rest);
+    const sortedProjects: GitHubProject[] = projects.map(({rawDate, ...rest }) => rest);
 
     return sortedProjects;
 }

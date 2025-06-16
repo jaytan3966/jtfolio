@@ -36,8 +36,8 @@ export default function Introduction({projectsRef, expRef, contactRef}: NavbarPr
                     )}
             </div>
             <div className="md:text-lg lg:text-2xl">
-                <h2 className="mb-4">I'm a first year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack web development. Thanks for taking the time to check out my website!</h2>
-                <h2 className="mb-4">When I'm not at the computer coding away, I enjoy spending my time watching movies, playing tennis (or any racquet sport), and jamming to my Spotify playlists. </h2>
+                <h2 className="mb-4">I&apos;m a first year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack web development. Thanks for taking the time to check out my website!</h2>
+                <h2 className="mb-4">When I&apos;m not at the computer coding away, I enjoy spending my time watching movies, playing tennis (or any racquet sport), and jamming to my Spotify playlists. </h2>
                 <div className="flex flex-wrap text-center justify-center"> 
                     <h2 className="mb-4">Check out my&nbsp;</h2>
                     <h2 onClick={() => handleScrollDown(projectsRef)} className={`cursor-pointer text-transparent bg-clip-text bg-gradient-to-r animate-rainbow hover:font-semibold hover:scale-110 transition-all duration-400 ${isDarkMode ? "from-red-500 to-orange-500" : "from-red-400 to-orange-400"}`}>projects,&nbsp;</h2>

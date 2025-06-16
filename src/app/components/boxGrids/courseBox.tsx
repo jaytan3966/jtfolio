@@ -84,7 +84,7 @@ export default function CourseBox({name, courseTitle, description, lessons, href
                 </div>
             </Link>
             <div className="flex-grow flex flex-col p-2">
-                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} className="{courseTitle}"{">"}</h1>
+                <h1 className="text-lg lg:text-xl font-bold">{"<"}{name} className=&quot;{courseTitle}&quot;{">"}</h1>
 
                 
                <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
