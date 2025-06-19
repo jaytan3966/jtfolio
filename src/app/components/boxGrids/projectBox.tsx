@@ -68,7 +68,7 @@ export default function Projectbox({ name, date, description, techs, url, gif}: 
 
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
                     <p className={`text-center ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-                        {description}
+                        {description ? description : "Work in Progress...Coming Soon!"}
                     </p>
                 </div>
                 
