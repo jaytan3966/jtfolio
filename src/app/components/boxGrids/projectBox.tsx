@@ -39,7 +39,7 @@ export default function Projectbox({ name, date, description, techs, url, gif}: 
                 <div className="relative">
                     <img 
                     title={`View ${name}`}
-                    src={`${gif}`}
+                    src={gif ? `${gif}` : "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cGhpaDd1MGZmdG5nd2RwMHB6MWhxMnR5OWZ1Ym05cDZ2bjNseGQxYiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/xZsLh7B3KMMyUptD9D/giphy.gif"}
                     className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
                     />
 
