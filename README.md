@@ -28,5 +28,6 @@ A modern, responsive portfolio website built with Next.js and Tailwind CSS, show
 
 - Deployment:
   - Vercel (for Next.js hosting)
- 
+
+Check it out [here](https://jaydentan.vercel.app/)!
 ## Built with 🔥 by Jayden Tan | © 2025
