@@ -36,7 +36,7 @@ export default function Introduction({projectsRef, expRef, contactRef}: NavbarPr
                     )}
             </div>
             <div className="md:text-lg lg:text-2xl">
-                <h2 className="mb-4">I&apos;m a second year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack web development. Thanks for taking the time to check out my website!</h2>
+                <h2 className="mb-4">I&apos;m a second year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack software engineering. Thanks for taking the time to check out my website!</h2>
                 <h2 className="mb-4">When I&apos;m not at the computer coding away, I enjoy spending my time watching movies, playing tennis (or any racquet sport), and jamming to my Spotify playlists. </h2>
                 <div className="flex flex-wrap text-center justify-center"> 
                     <h2 className="mb-4">Check out my&nbsp;</h2>
