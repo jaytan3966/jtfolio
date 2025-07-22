@@ -32,12 +32,13 @@ async function getGitInfo(): Promise<GitHubProject[]> {
         .map((project) => ({
             name: project.name,
             description: project.description || '',
+            rawDate: project.created_at,
             date: formatDate(new Date(project.created_at)),
             techs: project.topics,
             url: project.html_url,
             gif: project.homepage || '',
         }))
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        .sort((a, b) => new Date(b.rawDate).getTime() - new Date(a.rawDate).getTime());
 }
 
 function formatDate(date: Date): string {
