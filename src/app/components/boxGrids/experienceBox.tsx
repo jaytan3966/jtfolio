@@ -61,7 +61,7 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                         width={500}
                         height={300}
                         src={`${img}`}
-                        className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
+                        className="w-full h-48 object-cover group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
                         alt={name}
                         />
 
