@@ -37,11 +37,13 @@ export default function Projectbox({ name, date, description, techs, url, gif}: 
                 className="flex-shrink-0 relative group overflow-hidden"
                 >
                 <div className="relative">
-                    <img 
-                    title={`View ${name}`}
-                    src={gif ? `${gif}` : "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cGhpaDd1MGZmdG5nd2RwMHB6MWhxMnR5OWZ1Ym05cDZ2bjNseGQxYiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/xZsLh7B3KMMyUptD9D/giphy.gif"}
-                    className="w-full group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
-                    />
+                    <div className="aspect-video w-full overflow-hidden">
+                        <img 
+                        title={`View ${name}`}
+                        src={gif ? `${gif}` : "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cGhpaDd1MGZmdG5nd2RwMHB6MWhxMnR5OWZ1Ym05cDZ2bjNseGQxYiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/xZsLh7B3KMMyUptD9D/giphy.gif"}
+                        className="w-full h-full object-cover group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
+                        />
+                    </div>
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <svg 
