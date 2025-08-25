@@ -43,7 +43,7 @@ export default function ExperienceBox({name, title, description, skills, href}: 
     }, []);
 
     return (
-        <div ref={ref} className={`box-border border-3 flex flex-col rounded-sm max-w-[47vw] h-full ${
+        <div ref={ref} className={`box-border border-3 flex flex-col rounded-sm max-w-[45vw] h-full ${
                 isDarkMode ? "border-white" : "border-black"
             } ${
                 isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
