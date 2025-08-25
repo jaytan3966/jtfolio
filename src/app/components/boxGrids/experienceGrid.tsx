@@ -20,7 +20,7 @@ export default function ExperienceGrid(){
     
         
     return (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 justify-center items-stretch">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 items-stretch">
             {exps.map((exp) => {
                 return (
                     <div key={exp.name}>

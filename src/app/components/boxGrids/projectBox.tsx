@@ -25,7 +25,7 @@ export default function Projectbox({ name, date, description, techs, url, gif}: 
     return (
         <div 
             ref={ref}
-            className={`box-border border-4 flex flex-col rounded-sm max-w-[47vw] h-full ${
+            className={`box-border border-4 flex flex-col rounded-sm h-full ${
                 isDarkMode ? "border-white" : "border-black"
             } ${
                 isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
