@@ -43,7 +43,7 @@ export default function Home() {
 
   if (currentPage === 'home') {
     return (
-      <div ref={aboutRef} className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-100 text-black'} transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+      <div ref={aboutRef} className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-100 text-black'} transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} max-w-[100vw]`}>
         <Navbar aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} contactRef={contactRef}/>
         <header className="flex p-4 font-mono" id="about-me">
           <Introduction aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} contactRef={contactRef}/>
