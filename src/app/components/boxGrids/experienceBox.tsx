@@ -90,7 +90,7 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                 <h1 className="font-bold text-lg lg:text-xl">{"<"}{name} title=&quot;{title}&quot;{">"}</h1>
             
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
-                    <p className={`text-center mb-2 mx-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"} transition-all duration-500`}>{description}</p>
+                    <p className={`text-center mb-2 mx-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"} transition-all duration-500`}>{description == "" ? "Starting soon!" : description}</p>
                 </div>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 m-3">
                     {skills.map((name, i) => {
