@@ -21,7 +21,7 @@ export default function ExperienceGrid(){
         
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 items-stretch">
-            {exps.sort((a, b) => b.rigor - a.rigor).map((exp) => {
+            {exps.sort((a, b) => Number(b.rigor) - Number(a.rigor)).map((exp) => {
                 return (
                     <div key={exp.name}>
                         <ExperienceBox name={exp.name} title={exp.title} description={exp.description} skills={exp.skills} href={exp.href} rigor={exp.rigor}/>
