@@ -11,9 +11,8 @@ export default function ExperienceGrid(){
         async function getExp(){
             const response = await fetch("/api/db?type=EXPERIENCE");
             if (response.ok){
-                const data: ExpProps[] = await response.json();
-                const sortedData = data.sort((a, b) => Number(b.rigor) - Number(a.rigor));
-                setExp(sortedData);
+                const data = await response.json();
+                setExp(data);
             }
         }
         getExp();
@@ -25,7 +24,7 @@ export default function ExperienceGrid(){
             {exps.map((exp) => {
                 return (
                     <div key={exp.name}>
-                        <ExperienceBox name={exp.name} title={exp.title} description={exp.description} skills={exp.skills} href={exp.href} rigor={exp.rigor}/>
+                        <ExperienceBox name={exp.name} title={exp.title} description={exp.description} skills={exp.skills} href={exp.href}/>
                     </div>
                 )
             })}

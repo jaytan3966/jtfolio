@@ -11,6 +11,7 @@ export interface CourseProps{
     description: string,
     lessons: string[],
     href: string,
+    rigor: number,
 }
 
 export default function CourseBox({name, courseTitle, description, lessons, href}: CourseProps){

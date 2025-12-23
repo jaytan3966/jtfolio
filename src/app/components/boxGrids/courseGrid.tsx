@@ -10,8 +10,9 @@ export default function CourseGrid(){
         async function getCourses(){
             const response = await fetch("/api/db?type=COURSES");
             if (response.ok){
-                const data = await response.json();
-                setCourses(data);
+                const data: CourseProps[] = await response.json();
+                const sortedData = data.sort((a, b) => Number(b.rigor) - Number(a.rigor));
+                setCourses(sortedData)
             }
         }
         getCourses();
@@ -23,7 +24,7 @@ export default function CourseGrid(){
             {courses.map((course) => {
                 return (
                     <div key={course.name}>
-                        <CourseBox name={course.name} courseTitle={course.courseTitle} description={course.description} lessons={course.lessons} href={course.href}/>
+                        <CourseBox name={course.name} courseTitle={course.courseTitle} description={course.description} lessons={course.lessons} href={course.href} rigor={course.rigor}/>
                     </div>
                 )
             })}
