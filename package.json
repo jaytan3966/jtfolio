@@ -15,6 +15,7 @@
     "@aws-sdk/util-dynamodb": "^3.812.0",
     "@formspree/react": "^3.0.0",
     "@types/nodemailer": "^6.4.17",
+    "@vercel/analytics": "^1.6.1",
     "aws-sdk": "^2.1692.0",
     "next": "15.3.8",
     "nodemailer": "^6.10.1",
