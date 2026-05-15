@@ -69,7 +69,7 @@ export default function ProjectsGrid(){
     }, []);
     
     return (
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 items-stretch">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 items-stretch">
             {projects.map((proj) => {
                 return (
                     <div key={proj.name}>

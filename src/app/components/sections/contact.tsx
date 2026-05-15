@@ -200,6 +200,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                         >
                             {isSubmitting ? "SENDING..." : "SEND"}
                         </button>
+
                     </form>
                 </div>
             </div>

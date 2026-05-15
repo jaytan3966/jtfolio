@@ -4,14 +4,13 @@ import { useTheme } from './context/themecontext';
 
 import Loading from './components/loading';
 import Navbar from './components/navbar';
-import Back from './components/back';
-import SocialMedia from './components/socialMedia';
 
 import Introduction from './components/introduction';
 import Projects from './components/sections/projects';
 import Experience from './components/sections/experience';
 import Courses from './components/sections/courses';
 import Contact from './components/sections/contact';
+import Socials from './components/sections/socials';
 
 export default function Home() {
   
@@ -23,6 +22,10 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
+
+  const [isSocialsOpen, setIsSocialsOpen] = useState(false);
+  const openSocials = () => setIsSocialsOpen(true);
+  const closeSocials = () => setIsSocialsOpen(false);
 
   const [currentPage, setCurrentPage] = useState('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -59,7 +62,7 @@ export default function Home() {
   if (currentPage === 'home') {
     return (
       <div ref={aboutRef} className={`${isDarkMode ? 'bg-black text-white' : 'bg-gray-100 text-black'} transition-all duration-500 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-        <Navbar aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} openContact={openContact}/>
+        <Navbar aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} openContact={openContact} openSocials={openSocials}/>
         <header className="flex p-4 font-mono" id="about-me">
           <Introduction aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} openContact={openContact}/>
         </header>
@@ -68,9 +71,8 @@ export default function Home() {
           <div ref={expRef}><Experience /></div>
           <div ref={courseRef}><Courses /></div>
         </main>
-        <Back aboutRef={aboutRef} projectsRef={projectsRef} expRef={expRef} courseRef={courseRef} openContact={openContact}/>
-        <SocialMedia/>
         <Contact isOpen={isContactOpen} onClose={closeContact}/>
+        <Socials isOpen={isSocialsOpen} onClose={closeSocials}/>
       </div>
     );
   }
