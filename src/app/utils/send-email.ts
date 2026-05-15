@@ -1,16 +1,14 @@
 import { FormData } from "../components/sections/contact";
 
-export function sendEmail(data: FormData) {
-
-  fetch('/api/email', {
+export async function sendEmail(data: FormData) {
+  const res = await fetch('/api/email', {
     method: 'POST',
     body: JSON.stringify(data),
-  }) 
-  .then((res) => res.json())
-  .then((response) => {
-    return response;
-  })
-  .catch((err) => {
-    console.error(err);
-  })
+  });
+
+  if (!res.ok) {
+    throw new Error(`Email send failed: ${res.status}`);
+  }
+
+  return res.json();
 }

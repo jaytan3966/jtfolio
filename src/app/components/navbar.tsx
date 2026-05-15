@@ -5,7 +5,7 @@ export interface NavbarProps {
     projectsRef: React.RefObject<HTMLDivElement | null>;
     expRef: React.RefObject<HTMLDivElement | null>;
     courseRef: React.RefObject<HTMLDivElement | null>;
-    contactRef: React.RefObject<HTMLDivElement | null>;
+    openContact: () => void;
 }
   
 export const handleScrollDown = (
@@ -23,7 +23,7 @@ export const handleRefresh = () => {
     window.location.reload();
 }
 
-export default function Navbar({projectsRef, expRef, courseRef, contactRef}: NavbarProps) {
+export default function Navbar({projectsRef, expRef, courseRef, openContact}: NavbarProps) {
     const { isDarkMode, toggleTheme } = useTheme();
 
     return (
@@ -33,7 +33,7 @@ export default function Navbar({projectsRef, expRef, courseRef, contactRef}: Nav
                 <button onClick={() => handleScrollDown(projectsRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500 text-sm md:text-xl" title="Check out Jayden's Projects">Projects</button>
                 <button onClick={() => handleScrollDown(expRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500 text-sm md:text-xl" title="Take a look at Jayden's Experience">Experience</button>
                 <button onClick={() => handleScrollDown(courseRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500 text-sm md:text-xl" title="See Jayden's Courses">Courses</button>
-                <button onClick={() => handleScrollDown(contactRef)} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500 text-sm md:text-xl" title="Contact Jayden">Contact</button>
+                <button onClick={openContact} className="cursor-pointer hover:font-bold hover:scale-110 transition-all duration-500 text-sm md:text-xl" title="Contact Jayden">Contact</button>
             </div>
 
             <button
