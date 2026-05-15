@@ -20,11 +20,16 @@ export default function Home() {
   const courseRef = useRef<HTMLDivElement | null>(null);
 
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const openContact = () => setIsContactOpen(true);
-  const closeContact = () => setIsContactOpen(false);
-
   const [isSocialsOpen, setIsSocialsOpen] = useState(false);
-  const openSocials = () => setIsSocialsOpen(true);
+  const openContact = () => {
+    setIsSocialsOpen(false);
+    setIsContactOpen(true);
+  };
+  const closeContact = () => setIsContactOpen(false);
+  const openSocials = () => {
+    setIsContactOpen(false);
+    setIsSocialsOpen(true);
+  };
   const closeSocials = () => setIsSocialsOpen(false);
 
   const [currentPage, setCurrentPage] = useState('home');

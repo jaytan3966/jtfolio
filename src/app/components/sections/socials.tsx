@@ -88,7 +88,7 @@ export default function Socials({ isOpen, onClose }: SocialsProps) {
             <div
                 aria-hidden={!isOpen}
                 onClick={onClose}
-                className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+                className={`fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
             />
@@ -97,7 +97,7 @@ export default function Socials({ isOpen, onClose }: SocialsProps) {
                 aria-modal="true"
                 aria-labelledby="socials-title"
                 onClick={onClose}
-                className={`fixed inset-0 z-[70] flex items-center justify-center p-4 transition-all duration-300 ${
+                className={`fixed inset-0 z-[120] flex items-center justify-center p-4 transition-all duration-300 ${
                     isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                 }`}
             >
