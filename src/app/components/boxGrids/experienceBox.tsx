@@ -57,13 +57,13 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                 >
                 <div className="relative">
 
-                    <div className={`aspect-video w-full overflow-hidden flex items-center justify-center p-6 ${isDarkMode ? "bg-white" : "bg-gray-100"}`}>
+                    <div className={`aspect-video w-full overflow-hidden flex items-center justify-center p-2 ${isDarkMode ? "bg-white" : "bg-gray-50"}`}>
                         <Image
                             title={`View ${name}`}
                             width={500}
                             height={300}
                             src={`${img}`}
-                            className="max-w-full max-h-full object-contain group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
+                            className="w-full h-full object-contain group-hover:opacity-30 hover:cursor-pointer transition-all duration-500"
                             alt={name}
                         />
                     </div>
