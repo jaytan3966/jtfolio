@@ -11,8 +11,11 @@ export default function ExperienceGrid(){
         async function getExp(){
             const response = await fetch("/api/db?type=EXPERIENCE");
             if (response.ok){
-                const data = await response.json();
-                setExp(data);
+                const data: ExpProps[] = await response.json();
+                const sorted = [...data].sort(
+                    (a, b) => (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER)
+                );
+                setExp(sorted);
             }
         }
         getExp();

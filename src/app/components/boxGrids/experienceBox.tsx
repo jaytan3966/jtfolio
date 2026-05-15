@@ -10,6 +10,7 @@ export interface ExpProps{
     description: string,
     skills: string[],
     href: string,
+    rank?: number,
 }
 
 export default function ExperienceBox({name, title, description, skills, href}: ExpProps){
