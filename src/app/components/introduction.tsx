@@ -4,7 +4,7 @@ import { useTheme } from "../context/themecontext";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
 
-export default function Introduction({projectsRef, expRef, contactRef}: NavbarProps) {
+export default function Introduction({projectsRef, expRef, openContact}: NavbarProps) {
     const {isDarkMode} = useTheme();
     const { ref, inView } = useInView({
         threshold: 0.1,
@@ -36,15 +36,17 @@ export default function Introduction({projectsRef, expRef, contactRef}: NavbarPr
                     )}
             </div>
             <div className="md:text-lg lg:text-2xl">
-                <h2 className="mb-4">I&apos;m a second year computer science undergraduate student at sunny UC Santa Barbara passionate about fullstack software engineering. Thanks for taking the time to check out my website!</h2>
-                <h2 className="mb-4">When I&apos;m not at the computer coding away, I enjoy spending my time watching movies, playing tennis (or any racquet sport), and jamming to my Spotify playlists. </h2>
-                <div className="flex flex-wrap text-center justify-center"> 
-                    <h2 className="mb-4">Check out my&nbsp;</h2>
-                    <h2 onClick={() => handleScrollDown(projectsRef)} className={`cursor-pointer text-transparent bg-clip-text bg-gradient-to-r animate-rainbow hover:font-semibold hover:scale-110 transition-all duration-400 ${isDarkMode ? "from-red-500 to-orange-500" : "from-red-400 to-orange-400"}`}>projects,&nbsp;</h2>
-                    <a onClick={() => handleScrollDown(expRef)} className={`cursor-pointer text-transparent bg-clip-text bg-gradient-to-r animate-rainbow hover:font-semibold hover:scale-110 transition-all duration-400 ${isDarkMode ? "from-orange-500 to-green-500" : "from-orange-400 to-green-400"}`}>experiences,&nbsp;</a>
-                    <h2 className="mb-4">or&nbsp;</h2>
-                    <a onClick={() => handleScrollDown(contactRef)} className={`cursor-pointer text-transparent bg-clip-text bg-gradient-to-r animate-rainbow hover:font-semibold hover:scale-110 transition-all duration-400 ${isDarkMode ? "from-green-500 to-blue-500" : "from-green-400 to-blue-400"}`}>contact </a>
-                    <h2 className="mb-4">&nbsp;me&nbsp;below!</h2>
+                <h2 className="mb-4">Thanks for stopping by! I&apos;m a CS junior at UC Santa Barbara, drawn to backend engineering and AI systems — lately, that&apos;s meant building data pipelines, LLM integrations, and full-stack applications.</h2>
+                <h2 className="mb-4">This summer, I&apos;ll be joining Visa as a Software Engineering Intern. Right now, I&apos;m working with Unwrap.ai on a social media relevancy classifier for clients like Lululemon and Lyft, and developing .NET web apps at UCSB ITS.</h2>
+                <h2 className="mb-4">Outside of coding, I enjoy watching movies, playing tennis, and listening to music.</h2>
+                <div className="flex flex-wrap text-center justify-center mb-4">
+                    <h2>Check out my&nbsp;</h2>
+                    <button onClick={() => handleScrollDown(projectsRef)} className={`cursor-pointer relative font-medium hover:font-bold transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-px after:transition-all after:duration-300 hover:after:w-full ${isDarkMode ? "after:bg-white" : "after:bg-black"}`}>projects</button>
+                    <h2>,&nbsp;</h2>
+                    <button onClick={() => handleScrollDown(expRef)} className={`cursor-pointer relative font-medium hover:font-bold transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-px after:transition-all after:duration-300 hover:after:w-full ${isDarkMode ? "after:bg-white" : "after:bg-black"}`}>experiences</button>
+                    <h2>,&nbsp;or&nbsp;</h2>
+                    <button onClick={openContact} className={`cursor-pointer relative font-medium hover:font-bold transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-px after:transition-all after:duration-300 hover:after:w-full ${isDarkMode ? "after:bg-white" : "after:bg-black"}`}>contact</button>
+                    <h2>&nbsp;me.</h2>
                 </div>
             </div>
         </div>
