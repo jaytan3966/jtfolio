@@ -3,7 +3,11 @@ import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
 import CourseGrid from "../boxGrids/courseGrid";
 
-export default function Courses() {
+export interface CoursesSectionProps {
+    admin?: boolean;
+}
+
+export default function Courses({ admin = false }: CoursesSectionProps = {}) {
     const { ref, inView } = useInView({
         threshold: 0.1,
     });
@@ -28,7 +32,7 @@ export default function Courses() {
                 )}
             </div>
             <div className="flex items-center justify-center">
-                <CourseGrid/>
+                <CourseGrid admin={admin}/>
             </div>
         </div>
     );

@@ -3,7 +3,11 @@ import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
 import ExperienceGrid from "../boxGrids/experienceGrid";
 
-export default function Experience() {
+export interface ExperienceSectionProps {
+    admin?: boolean;
+}
+
+export default function Experience({ admin = false }: ExperienceSectionProps = {}) {
     const { ref, inView } = useInView({
         threshold: 0.1,
     });
@@ -30,7 +34,7 @@ export default function Experience() {
                     )}
             </div>
             <div className="flex items-center justify-center">
-                <ExperienceGrid/>
+                <ExperienceGrid admin={admin}/>
             </div>
         </div>
     );

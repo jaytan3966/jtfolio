@@ -13,8 +13,12 @@ export interface ExpProps{
     rank?: number,
 }
 
-export default function ExperienceBox({name, title, description, skills, href}: ExpProps){
-    
+export interface ExperienceBoxProps extends ExpProps {
+    onEdit?: () => void;
+}
+
+export default function ExperienceBox({name, title, description, skills, href, onEdit}: ExperienceBoxProps){
+
     const [isTransitioning, setIsTransitioning] = useState(true);
 
     const { ref, inView } = useInView({
@@ -41,7 +45,9 @@ export default function ExperienceBox({name, title, description, skills, href}: 
             }
         }
         getImg();
-    }, []);
+    }, [name]);
+
+    const adminMode = Boolean(onEdit);
 
     return (
         <div ref={ref} className={`box-border border-3 flex flex-col rounded-sm h-full ${
@@ -84,10 +90,32 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                             />
                         </svg>
                     </div>
+
                 </div>
             </Link>
 
-            <div className="flex-grow flex flex-col p-2">
+            <div
+                onClick={adminMode && onEdit ? onEdit : undefined}
+                onKeyDown={
+                    adminMode && onEdit
+                        ? (e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  onEdit();
+                              }
+                          }
+                        : undefined
+                }
+                role={adminMode && onEdit ? "button" : undefined}
+                tabIndex={adminMode && onEdit ? 0 : undefined}
+                aria-label={adminMode && onEdit ? `Edit ${name}` : undefined}
+                title={adminMode && onEdit ? "Click to edit" : undefined}
+                className={`flex-grow flex flex-col p-2 transition-colors duration-300 ${
+                    adminMode && onEdit
+                        ? `cursor-pointer ${isDarkMode ? "hover:bg-white/5" : "hover:bg-black/5"}`
+                        : ""
+                }`}
+            >
                 <h1 className="font-bold text-lg lg:text-xl">{"<"}{name} title=&quot;{title}&quot;{">"}</h1>
             
                 <div className="flex-grow min-h-[60px] my-2 overflow-y-auto">
@@ -96,14 +124,14 @@ export default function ExperienceBox({name, title, description, skills, href}: 
                 <div className="flex flex-wrap gap-x-5 gap-y-2 m-3">
                     {skills.map((name, i) => {
                         return (
-                            <button 
+                            <span
                             className={`px-2 py-1 rounded-xl text-xs ${
                                 isDarkMode ? "bg-gray-800 text-gray-250" : "bg-gray-300 text-gray-800"
-                            } transition-all duration-500 hover:cursor-pointer`}
+                            } transition-all duration-500`}
                             key={i}
                             >
                                 {"<"}{name}{"/>"}
-                            </button>
+                            </span>
                         )
                     })}
                 </div>

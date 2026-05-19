@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
-import { GetObjectCommandInput } from "@aws-sdk/client-s3";
 
-export async function GET(request: Request){
-    const { searchParams } = new URL(request.url);
-    const entityType = searchParams.get('type') as string;
-    const name = searchParams.get('name') as string;
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const entityType = searchParams.get("type");
+  const name = searchParams.get("name");
 
-    try {
-        const input: GetObjectCommandInput = {
-            Bucket: "jtfolio-imgs",
-            Key: `jtfolio-${entityType}/${name}.png`
-        };
-        const url = `https://${input.Bucket}.s3.amazonaws.com/${input.Key}`;
-        return new NextResponse(url);
-    } catch (error) {
-        console.error(error);
-    }
+  if (!entityType || !name) {
+    return new NextResponse("type and name params are required", { status: 400 });
+  }
+
+  const bucket = process.env.S3_BUCKET;
+  if (!bucket) {
+    console.error("S3_BUCKET env var is not set");
+    return new NextResponse("Server misconfigured", { status: 500 });
+  }
+
+  const url = `https://${bucket}.s3.amazonaws.com/jtfolio-${entityType}/${name}.png`;
+  return new NextResponse(url);
 }
