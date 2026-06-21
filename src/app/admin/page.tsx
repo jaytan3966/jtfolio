@@ -93,6 +93,7 @@ export default function AdminHome() {
                         expRef={expRef}
                         courseRef={courseRef}
                         openContact={openContact}
+                        admin
                     />
                 </header>
                 <main className="items-center p-4 font-mono sm:2xl">

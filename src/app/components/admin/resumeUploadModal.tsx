@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTheme } from "@/app/context/themecontext";
+import TypewriterTitle from "@/app/components/typewriterTitle";
 
 interface Props {
     onClose: () => void;
@@ -127,7 +128,7 @@ export default function ResumeUploadModal({ onClose }: Props) {
                     </button>
 
                     <div className="px-6 pt-6 pb-2">
-                        <h2 className="text-2xl md:text-3xl font-bold">{"> Update Resume"}</h2>
+                        <TypewriterTitle text="Update Resume" className="text-2xl md:text-3xl font-bold" />
                         <p className={`mt-1 text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
                             Upload a new PDF. It replaces the live resume everywhere instantly — no redeploy.
                         </p>

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useTheme } from "@/app/context/themecontext";
+import TypewriterTitle from "@/app/components/typewriterTitle";
 import type { ExpProps } from "@/app/components/boxGrids/experienceBox";
 import type { CourseProps } from "@/app/components/boxGrids/courseBox";
 
@@ -267,7 +268,7 @@ export default function ItemFormModal(props: Props) {
     const panelBorder = isDarkMode ? "border-white" : "border-black";
 
     const title =
-        (mode === "create" ? "> New " : "> Edit ") +
+        (mode === "create" ? "New " : "Edit ") +
         (entityType === "experience" ? "Experience" : "Course");
 
     return createPortal(
@@ -304,7 +305,7 @@ export default function ItemFormModal(props: Props) {
                     </button>
 
                     <div className="px-6 pt-6 pb-2">
-                        <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
+                        <TypewriterTitle text={title} className="text-2xl md:text-3xl font-bold" />
                         <p className={`mt-1 text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
                             {mode === "edit" ? "Update fields and (optionally) replace the image." : "Fill in the details for the new entry."}
                         </p>
