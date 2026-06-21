@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/app/context/themecontext";
 
 import Loading from "@/app/components/loading";
+import ResumeUploadModal from "@/app/components/admin/resumeUploadModal";
 import Navbar from "@/app/components/navbar";
 import Introduction from "@/app/components/introduction";
 import Projects from "@/app/components/sections/projects";
@@ -123,6 +124,7 @@ export default function AdminHome() {
 
 function AdminBadge() {
     const { isDarkMode } = useTheme();
+    const [resumeOpen, setResumeOpen] = useState(false);
     return (
         <div className="fixed bottom-4 right-4 z-[105] flex items-center gap-2 font-mono">
             <span
@@ -135,6 +137,19 @@ function AdminBadge() {
             >
                 ADMIN
             </span>
+            <button
+                type="button"
+                onClick={() => setResumeOpen(true)}
+                title="Update resume PDF"
+                className={`px-3 py-1 rounded-full text-xs font-bold border-2 backdrop-blur-md cursor-pointer transition-colors duration-300 ${
+                    isDarkMode
+                        ? "bg-black/60 border-white/40 text-white hover:bg-white hover:text-black"
+                        : "bg-white/80 border-black/40 text-black hover:bg-black hover:text-white"
+                }`}
+            >
+                RESUME
+            </button>
+            {resumeOpen && <ResumeUploadModal onClose={() => setResumeOpen(false)} />}
             <form action={logoutAction}>
                 <button
                     type="submit"

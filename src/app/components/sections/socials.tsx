@@ -53,10 +53,9 @@ export default function Socials({ isOpen, onClose }: SocialsProps) {
             ),
         },
         {
-            href: "JAYDEN_TAN_RESUME.pdf",
+            href: "/api/resume",
             label: "Resume",
             handle: "PDF",
-            download: "JAYDEN_TAN_RESUME",
             svg: (
                 <>
                     <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
@@ -134,7 +133,6 @@ export default function Socials({ isOpen, onClose }: SocialsProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title={s.label}
-                                {...(s.download ? { download: s.download } : {})}
                                 className={`group rounded-full px-3 py-3 transition-colors duration-300 hover:font-bold ${rowTheme}`}
                                 style={{ display: "grid", gridTemplateColumns: "24px 1fr auto 16px", columnGap: "12px", alignItems: "center" }}
                             >

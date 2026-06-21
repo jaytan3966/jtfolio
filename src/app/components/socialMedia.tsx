@@ -30,7 +30,7 @@ export default function SocialMedia() {
                         <path fill="currentColor" d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
                     </svg>
                 </a>
-                <a className="cursor-pointer hover:scale-130 transition-scale duration-500" title='Jayden&apos;s Resume, take one!' href="JAYDEN_TAN_RESUME.pdf" download={'JAYDEN_TAN_RESUME'} target="_blank">
+                <a className="cursor-pointer hover:scale-130 transition-scale duration-500" title='Jayden&apos;s Resume, take one!' href="/api/resume" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
                         <path fill={isDarkMode ? 'white' : 'black'} d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" className='duration-500'/>
                         <path fill={isDarkMode ? 'black' : 'white'} d="M14 2v6h6z" className='duration-500'/>
