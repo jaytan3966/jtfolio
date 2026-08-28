@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { getItems } from "@/lib/db";
+import { getItemsCached } from "@/lib/db";
+import { cachedJson } from "@/lib/http-cache";
 
 export async function GET(request: Request) {
   try {
@@ -13,8 +14,8 @@ export async function GET(request: Request) {
       );
     }
 
-    const items = await getItems(entityType);
-    return NextResponse.json(items);
+    const items = await getItemsCached(entityType);
+    return cachedJson(request, items);
   } catch (error) {
     console.error("API route error:", error);
     return NextResponse.json(

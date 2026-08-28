@@ -20,7 +20,8 @@ export default function ExperienceGrid({ admin = false }: ExperienceGridProps){
     const [modal, setModal] = useState<ModalState>(null);
 
     const refetch = useCallback(async () => {
-        const response = await fetch("/api/db?type=EXPERIENCE");
+        // Admins must never see their own edit through a stale browser cache.
+        const response = await fetch("/api/db?type=EXPERIENCE", admin ? { cache: "no-store" } : undefined);
         if (response.ok) {
             const data: ExpProps[] = await response.json();
             const sorted = [...data].sort(
@@ -28,7 +29,7 @@ export default function ExperienceGrid({ admin = false }: ExperienceGridProps){
             );
             setExp(sorted);
         }
-    }, []);
+    }, [admin]);
 
     useEffect(() => {
         refetch();

@@ -31,7 +31,8 @@ export default function Introduction({ projectsRef, expRef, openContact, admin =
 
     const refetch = useCallback(async () => {
         try {
-            const res = await fetch("/api/db?type=HERO");
+            // Admins must never see their own edit through a stale browser cache.
+            const res = await fetch("/api/db?type=HERO", admin ? { cache: "no-store" } : undefined);
             if (!res.ok) return;
             const data = await res.json();
             const item = Array.isArray(data) ? data[0] : data;
@@ -43,7 +44,7 @@ export default function Introduction({ projectsRef, expRef, openContact, admin =
         } finally {
             setLoaded(true);
         }
-    }, []);
+    }, [admin]);
 
     useEffect(() => {
         refetch();

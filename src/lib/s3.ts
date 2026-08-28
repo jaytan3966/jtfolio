@@ -32,6 +32,9 @@ export async function uploadImage(
       Key: imageKey(entityType, name),
       Body: body,
       ContentType: contentType,
+      // Images are overwritten in place, so cache them for a short window and
+      // let shared caches keep serving while they refresh.
+      CacheControl: "public, max-age=300, stale-while-revalidate=86400",
     }),
   );
 }

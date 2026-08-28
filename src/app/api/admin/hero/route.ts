@@ -25,7 +25,8 @@ export async function GET() {
 
   try {
     const items = await getItems(ENTITY_TYPE);
-    return NextResponse.json(items[0] ?? null);
+    // Authenticated + always live: never cached anywhere.
+    return NextResponse.json(items[0] ?? null, { headers: { "Cache-Control": "no-store" } });
   } catch (err) {
     console.error("GET /api/admin/hero", err);
     return NextResponse.json({ error: "Failed to load hero" }, { status: 500 });

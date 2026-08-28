@@ -20,13 +20,14 @@ export default function CourseGrid({ admin = false }: CourseGridProps){
     const [modal, setModal] = useState<ModalState>(null);
 
     const refetch = useCallback(async () => {
-        const response = await fetch("/api/db?type=COURSES");
+        // Admins must never see their own edit through a stale browser cache.
+        const response = await fetch("/api/db?type=COURSES", admin ? { cache: "no-store" } : undefined);
         if (response.ok) {
             const data: CourseProps[] = await response.json();
             const sortedData = data.sort((a, b) => Number(b.rigor) - Number(a.rigor));
             setCourses(sortedData);
         }
-    }, []);
+    }, [admin]);
 
     useEffect(() => {
         refetch();

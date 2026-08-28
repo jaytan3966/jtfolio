@@ -40,7 +40,8 @@ export async function GET() {
 
   try {
     const items = await getItems(ENTITY_TYPE);
-    return NextResponse.json(items);
+    // Authenticated + always live: never cached anywhere.
+    return NextResponse.json(items, { headers: { "Cache-Control": "no-store" } });
   } catch (err) {
     console.error("GET /api/admin/courses", err);
     return NextResponse.json({ error: "Failed to load courses" }, { status: 500 });

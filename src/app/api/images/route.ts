@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cachedText, publicCacheControl } from "@/lib/http-cache";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -15,6 +16,11 @@ export async function GET(request: Request) {
     return new NextResponse("Server misconfigured", { status: 500 });
   }
 
+  // The URL is derived purely from the params, so it can be cached hard.
   const url = `https://${bucket}.s3.amazonaws.com/jtfolio-${entityType}/${name}.png`;
-  return new NextResponse(url);
+  return cachedText(
+    request,
+    url,
+    publicCacheControl({ maxAge: 86400, sMaxAge: 86400 }),
+  );
 }
