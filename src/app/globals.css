@@ -26,3 +26,58 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden
 }
+
+/* ---- Custom scrollbar ---- */
+:root {
+  --scrollbar-thumb: #c4c4c4;
+  --scrollbar-thumb-hover: #9a9a9a;
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --scrollbar-thumb: #3a3a3a;
+  --scrollbar-thumb-hover: #565656;
+  color-scheme: dark;
+}
+
+/* app theme wins over the OS preference */
+html[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  color-scheme: light;
+}
+
+/* Firefox */
+html {
+  background: var(--background);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* WebKit / Chromium */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
